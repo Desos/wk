@@ -1,22 +1,38 @@
-# This is a comment
-    # This is also a comment
+# wk Configuration - Catppuccin Mocha Theme
+# Migrated from wlr-which-key
 
-# This is a chord.
-# The trigger key is 'a'.
-# The description is "A chord".
-# The command is 'echo "Hello, World"'.
-a "A chord" %{{echo "Hello, world!"}}
+# ============================================
+# Theme - Catppuccin Mocha
+# ============================================
+:font "FiraCode Nerd Font Mono, 12"
+:bg "#1e1e2e"
+:fg "#cdd6f4"
+:bd "#89b4fa"
+:delimiter " ➜ "
+:border-width 2
+:border-radius 10
+:width-padding 15
+:height-padding 15
+:bottom
 
-# This is a prefix.
-# The trigger key is 'Control + a'
-p "A prefix"
-{
-    # This is a chord that can only be accessed after triggering the parent prefix.
-    b "A chord" %{{echo "Hello from inside prefix 'C-a'"}}
+# ============================================
+# Display Controls
+# ============================================
 
-    # Prefixes can nest additional prefixes arbitrarily deep
-    c "Another prefix"
-    {
-        d "Done" %{{echo "You've reached the end!"}}
-    }
+# Luminance (brightness) control
+l "+Luminance" +keep {
+    [0123456789] "Level %(key)" %{{set-brightness %(key)}}
 }
+
+# Hue (color temperature) control
+h "+Hue" +keep {
+    [0123456789] "Level %(key)" %{{set-temperature %(key)}}
+}
+
+# Both (brightness + temperature) control
+b "+Both" +keep {
+    [0123456789] "Level %(key)" %{{set-both %(key)}}
+}
+
+# Exit
+ESC "Close" %{{true}}
