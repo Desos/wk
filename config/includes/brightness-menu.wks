@@ -1,0 +1,18 @@
+# Luminance (brightness) control
+<b d> "+Display Brightness" +keep +title "Display Brightness"{
+
+	<l b> "+Brightness" +keep +title "Display Brightness" {
+	    [0123456789] "Level %(key)" %{{set-brightness %(key)}}
+	}
+
+	# Hue (color temperature) control
+	<h t> "+Temperature" +keep +title "Display Color Temperature" {
+	    [0123456789] "Level %(key)" %{{set-temperature %(key)}}
+	}
+
+	# Both (brightness + temperature) Controls
+	b "+Both" +keep +title "Display Brightness and Color Temperature"{
+	    [0123456789] "Level %(key)" %{{set-both %(key)}}
+	}
+}
+

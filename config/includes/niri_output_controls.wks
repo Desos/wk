@@ -1,0 +1,39 @@
+# Niri output control bindings
+# Expected variables:
+# $0 = command prefix
+# $1 = scope label
+
+e "Enable" {
+    1 "On" %{{%($0) on}}
+    0 "Off" %{{%($0) off}}
+}
+
+s "Scale" {
+    0 "Auto" %{{%($0) scale auto}}
+    1 "100%" %{{%($0) scale 1.0}}
+    2 "200%" %{{%($0) scale 2.0}}
+    f "Fraction" {
+        1 "50%"  %{{%($0) scale 0.5}}
+        2 "150%" %{{%($0) scale 1.5}}
+    }
+}
+
+r "Rotate" {
+    0 "Normal" %{{%($0) transform normal}}
+    1 "90°" %{{%($0) transform 90}}
+    2 "180°" %{{%($0) transform 180}}
+    3 "270°" %{{%($0) transform 270}}
+}
+
+f "Flip" {
+    0 "Flipped" %{{%($0) transform flipped}}
+    3 "Flipped 90°" %{{%($0) transform flipped-90}}
+    2 "Flipped 180°" %{{%($0) transform flipped-180}}
+    1 "Flipped 270°" %{{%($0) transform flipped-270}}
+}
+
+v "VRR" {
+    1 "On" %{{%($0) vrr on}}
+    0 "Off" %{{%($0) vrr off}}
+    d "On-Demand" %{{%($0) vrr --on-demand on}}
+}

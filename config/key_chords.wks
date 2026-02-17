@@ -5,33 +5,32 @@
 # Theme - Catppuccin Mocha
 # ============================================
 :font "FiraCode Nerd Font Mono, 12"
+:delay 0
 :bg "#1e1e2e"
 :fg "#cdd6f4"
 :bd "#89b4fa"
 :delimiter " ➜ "
 :border-width 2
 :border-radius 10
-:width-padding 15
-:height-padding 15
+:width-padding 5
+:height-padding 5
 :bottom
+:max-columns 3
 
 # ============================================
 # Display Controls
 # ============================================
 
-# Luminance (brightness) control
-l "+Luminance" +keep {
-    [0123456789] "Level %(key)" %{{set-brightness %(key)}}
-}
+:include "includes/brightness-menu.wks"
 
-# Hue (color temperature) control
-h "+Hue" +keep {
-    [0123456789] "Level %(key)" %{{set-temperature %(key)}}
-}
+# Niri Output Controls
+m "+Monitor" +keep +title "Focused Monitor" +args "niri-current-output-action" "focused" {
+    :include "includes/niri_output_controls.wks"
 
-# Both (brightness + temperature) control
-b "+Both" +keep {
-    [0123456789] "Level %(key)" %{{set-both %(key)}}
+    a "+All Monitors" +title "All Monitors" +args "niri-all-outputs-action" "all" {
+        :include "includes/niri_output_controls.wks"
+        f "+Focused Monitor" @goto "m"
+    }
 }
 
 # Exit
